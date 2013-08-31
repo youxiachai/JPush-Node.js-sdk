@@ -53,7 +53,6 @@ describe('should all test done', function () {
 
     jpushClient.pushAndroidSimpleMessage(sendno, receiver, {content:'from boardcast'}, function (err, body) {
       if (err) return  done(JSON.stringify(err));
-      console.log(body);
       body.should.include('"errmsg":"Succeed"');
       setTimeout(done, 500);
     });
@@ -67,7 +66,6 @@ describe('should all test done', function () {
 
     jpushClient.pushAndroidSimpleMessage(sendno, receiver, {content:'from boardcast'}, function (err, body) {
       if (err) return  done(JSON.stringify(err));
-      console.log(body);
       body.should.include('"errmsg":"Succeed"');
       setTimeout(done, 500);
     });
@@ -81,7 +79,6 @@ describe('should all test done', function () {
 
     jpushClient.pushAndroidSimpleMessage(sendno, receiver, {content:'from boardcast'}, function (err, body) {
       if (err) return  done(JSON.stringify(err));
-      console.log(body);
       body.should.include('"errmsg":"Succeed"');
       setTimeout(done, 500);
     });
@@ -94,7 +91,6 @@ describe('should all test done', function () {
 
     jpushClient.pushAndroidSimpleMessage(sendno, receiver, {content:'from boardcast'}, function (err, body) {
       if (err) return  done(JSON.stringify(err));
-      console.log(body);
       body.should.include('"errmsg":"Succeed"');
       setTimeout(done, 500);
     });

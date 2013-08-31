@@ -62,6 +62,23 @@ describe('should all test done', function () {
     });
   })
 
+  it('should push Simple Notification have options with IMEI', function (done) {
+    var receiver = {};
+    receiver.type = 1;
+    //11be746356bd8fd8
+    receiver.value = '11be746356bd8fd8';
+
+    var msg = {};
+    msg.content =  'Hi! from IMEI';
+    msg.platform = 'android';
+
+    jpushClient.pushSimpleNotification(sendno, receiver, msg, {timeToLive: 10000},function (err, body) {
+      if (err) return  done(JSON.stringify(err));
+      body.should.include('"errmsg":"Succeed"');
+      setTimeout(done, 500);
+    });
+  })
+
   it('should send simple pushSimpleNotification with tag', function (done) {
     var receiver = {};
     receiver.type = 2;

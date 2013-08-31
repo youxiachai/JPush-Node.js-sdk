@@ -26,5 +26,9 @@
   },
   "bugs": {
     "url": "https://github.com/youxiachai/JPush-Node.js-sdk/issues"
+  },
+  "directories": {
+    "doc": "doc",
+    "test": "test"
   }
 }

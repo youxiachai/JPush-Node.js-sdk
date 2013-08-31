@@ -51,7 +51,7 @@ describe('should all test done', function () {
     //11be746356bd8fd8
     receiver.value = '11be746356bd8fd8';
 
-    jpushClient.pushAndroidSimpleMessage(sendno, receiver, 'Hi! from IMEI', function (err, body) {
+    jpushClient.pushAndroidSimpleMessage(sendno, receiver, {content:'from boardcast'}, function (err, body) {
       if (err) return  done(JSON.stringify(err));
       console.log(body);
       body.should.include('"errmsg":"Succeed"');
@@ -65,7 +65,7 @@ describe('should all test done', function () {
     //11be746356bd8fd8
     receiver.value = 'test';
 
-    jpushClient.pushAndroidSimpleMessage(sendno, receiver, 'Hi! from tag', function (err, body) {
+    jpushClient.pushAndroidSimpleMessage(sendno, receiver, {content:'from boardcast'}, function (err, body) {
       if (err) return  done(JSON.stringify(err));
       console.log(body);
       body.should.include('"errmsg":"Succeed"');
@@ -79,7 +79,7 @@ describe('should all test done', function () {
     //11be746356bd8fd8
     receiver.value = 'alias';
 
-    jpushClient.pushAndroidSimpleMessage(sendno, receiver, 'Hi! from alias', function (err, body) {
+    jpushClient.pushAndroidSimpleMessage(sendno, receiver, {content:'from boardcast'}, function (err, body) {
       if (err) return  done(JSON.stringify(err));
       console.log(body);
       body.should.include('"errmsg":"Succeed"');
@@ -92,7 +92,7 @@ describe('should all test done', function () {
     receiver.type = 4;
     receiver.value = '';
 
-    jpushClient.pushAndroidSimpleMessage(sendno, receiver, 'from boardcast', function (err, body) {
+    jpushClient.pushAndroidSimpleMessage(sendno, receiver, {content:'from boardcast'}, function (err, body) {
       if (err) return  done(JSON.stringify(err));
       console.log(body);
       body.should.include('"errmsg":"Succeed"');

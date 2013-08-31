@@ -1,15 +1,13 @@
-# JPush Node.js sdk
-
+JPush Node.js sdk
+======================
 极光推送Node.js 服务端 sdk
-
-
-##Usage
+## Usage
 
 ```
 npm install jpush
 ```
 
-###Example
+## Example
 
 ``` js
 var JPush = require('jpush');
@@ -31,13 +29,13 @@ jpushClient.pushSimpleNotification(1, receiver, msg, function (err, body) {
 });
 ```
 
-##Api Support
+## Api Support
 
-###pushNotification
+### pushNotification
 
-###pushSimpleNotification
+### pushSimpleNotification
 
-###pushAndroidMessage
+### pushAndroidMessage
 
-###pushSimpleNotification
+### pushSimpleNotification
 

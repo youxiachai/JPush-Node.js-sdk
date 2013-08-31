@@ -31,7 +31,7 @@ jpushClient.pushSimpleNotification(1, receiver, msg, function (err, body) {
 
 ## Api Docs
 
-[在线文档](http://blog.gfdsa.net/JPush-Node.js-sdk/):
+[在线API文档](http://blog.gfdsa.net/JPush-Node.js-sdk/api.html):
 ** http://blog.gfdsa.net/JPush-Node.js-sdk/ **
 
 ## 支持本项目

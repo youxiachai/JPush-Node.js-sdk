@@ -54,7 +54,7 @@ describe('should all test done', function () {
     msg.type = 1;
     msg.platform = 'android';
     msg.content = {
-      n_content: "hello world! from imei"
+      n_content: "hello world! from % && imei"
     };
 
 

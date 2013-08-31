@@ -28,7 +28,7 @@ msg.platform = 'android';
 jpushClient.pushSimpleNotification(1, receiver, msg, function (err, body) {
   // JPush server message
   console.log(body);
-}
+});
 ```
 
 ##Api Support

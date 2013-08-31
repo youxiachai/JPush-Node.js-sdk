@@ -38,59 +38,63 @@ function getRandomInt(min, max) {
   }
  */
 describe('should all test done', function () {
-  var jpushClient;
+  var jpushClient = JPush.build({appkey: "90f80351266b389350168ebe", masterSecret: "aa83ac670b6ea7bfe8ba090e"});
   var sendno;
-  jpushClient = JPush.build({appkey: "90f80351266b389350168ebe", masterSecret: "aa83ac670b6ea7bfe8ba090e"});
+
   beforeEach(function () {
     sendno = getRandomInt(1, 100000);
   })
 
-  it('should send simple pushSimpleNotification with IMEI', function (done) {
+  it('should send simple push message with IMEI', function (done) {
     var receiver = {};
     receiver.type = 1;
     //11be746356bd8fd8
     receiver.value = '11be746356bd8fd8';
 
-    jpushClient.pushSimpleNotification(sendno, receiver, 'Hi! from IMEI', 'android', function (err, body) {
+    jpushClient.pushAndroidSimpleMessage(sendno, receiver, 'Hi! from IMEI', function (err, body) {
       if (err) return  done(JSON.stringify(err));
+      console.log(body);
       body.should.include('"errmsg":"Succeed"');
       setTimeout(done, 500);
     });
   })
 
-  it('should send simple pushSimpleNotification with tag', function (done) {
+  it('should send simple simple push message with tag', function (done) {
     var receiver = {};
     receiver.type = 2;
     //11be746356bd8fd8
     receiver.value = 'test';
 
-    jpushClient.pushSimpleNotification(sendno, receiver, 'Hi! from tag', 'android', function (err, body) {
+    jpushClient.pushAndroidSimpleMessage(sendno, receiver, 'Hi! from tag', function (err, body) {
       if (err) return  done(JSON.stringify(err));
+      console.log(body);
       body.should.include('"errmsg":"Succeed"');
       setTimeout(done, 500);
     });
   })
 
-  it('should send simple pushSimpleNotification with alias', function (done) {
+  it('should send simple simple push message with alias', function (done) {
     var receiver = {};
     receiver.type = 3;
     //11be746356bd8fd8
     receiver.value = 'alias';
 
-    jpushClient.pushSimpleNotification(sendno, receiver, 'Hi! from alias', 'android', function (err, body) {
+    jpushClient.pushAndroidSimpleMessage(sendno, receiver, 'Hi! from alias', function (err, body) {
       if (err) return  done(JSON.stringify(err));
+      console.log(body);
       body.should.include('"errmsg":"Succeed"');
       setTimeout(done, 500);
     });
   })
 
-  it('should send simple notificaion with boardcast', function (done) {
+  it('should send simple push message with boardcast', function (done) {
     var receiver = {};
     receiver.type = 4;
     receiver.value = '';
 
-    jpushClient.pushSimpleNotification(sendno, receiver, 'from boardcast', 'android', function (err, body) {
+    jpushClient.pushAndroidSimpleMessage(sendno, receiver, 'from boardcast', function (err, body) {
       if (err) return  done(JSON.stringify(err));
+      console.log(body);
       body.should.include('"errmsg":"Succeed"');
       setTimeout(done, 500);
     });

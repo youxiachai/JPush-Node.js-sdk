@@ -40,8 +40,8 @@ function getRandomInt(min, max) {
 describe('should all test done', function () {
   var jpushClient;
   var sendno;
-  jpushClient = JPush.build({appkey: "90f80351266b389350168ebe", masterSecret: "aa83ac670b6ea7bfe8ba090e"});
   beforeEach(function () {
+    jpushClient = new JPush({appkey: "90f80351266b389350168ebe", masterSecret: "aa83ac670b6ea7bfe8ba090e"});
     sendno = getRandomInt(1, 100000);
   })
 

@@ -51,7 +51,11 @@ describe('should all test done', function () {
     //11be746356bd8fd8
     receiver.value = '11be746356bd8fd8';
 
-    jpushClient.pushSimpleNotification(sendno, receiver, 'Hi! from IMEI', 'android', function (err, body) {
+    var msg = {};
+    msg.content =  'Hi! from IMEI';
+    msg.platform = 'android';
+
+    jpushClient.pushSimpleNotification(sendno, receiver, msg, function (err, body) {
       if (err) return  done(JSON.stringify(err));
       body.should.include('"errmsg":"Succeed"');
       setTimeout(done, 500);
@@ -64,7 +68,11 @@ describe('should all test done', function () {
     //11be746356bd8fd8
     receiver.value = 'test';
 
-    jpushClient.pushSimpleNotification(sendno, receiver, 'Hi! from tag', 'android', function (err, body) {
+    var msg = {};
+    msg.content =  'Hi! from tag';
+    msg.platform = 'android';
+
+    jpushClient.pushSimpleNotification(sendno, receiver, msg, function (err, body) {
       if (err) return  done(JSON.stringify(err));
       body.should.include('"errmsg":"Succeed"');
       setTimeout(done, 500);
@@ -77,7 +85,11 @@ describe('should all test done', function () {
     //11be746356bd8fd8
     receiver.value = 'alias';
 
-    jpushClient.pushSimpleNotification(sendno, receiver, 'Hi! from alias', 'android', function (err, body) {
+    var msg = {};
+    msg.content =  'Hi! from alias';
+    msg.platform = 'android';
+
+    jpushClient.pushSimpleNotification(sendno, receiver, msg, function (err, body) {
       if (err) return  done(JSON.stringify(err));
       body.should.include('"errmsg":"Succeed"');
       setTimeout(done, 500);
@@ -89,7 +101,11 @@ describe('should all test done', function () {
     receiver.type = 4;
     receiver.value = '';
 
-    jpushClient.pushSimpleNotification(sendno, receiver, 'from boardcast', 'android', function (err, body) {
+    var msg = {};
+    msg.content =  'Hi! from boardcast';
+    msg.platform = 'android';
+
+    jpushClient.pushSimpleNotification(sendno, receiver, msg, function (err, body) {
       if (err) return  done(JSON.stringify(err));
       body.should.include('"errmsg":"Succeed"');
       setTimeout(done, 500);

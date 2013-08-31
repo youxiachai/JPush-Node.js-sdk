@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>jpush Documentation</title>
+    <meta name="keywords" content="jpush" />
+    <meta name="description" content="jpush Node.js sdk" />
+    <script src="assets/prettify.js"></script>
+    <script src="assets/jquery-1.8.2.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/base.css" />
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="./index.html">jpush</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+            
+              <li>
+                <a href="./api.html">API Docs</a>
+              </li>
+            
+            
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header class="jumbotron subhead">
+      <div class="container">
+        <h1>jpush <small>Version: 0.0.1 By @youxiachai</small></h1>
+        <p class="lead">
+          jpush Node.js sdk
+        </p>
+      </div>
+    </header>
+<div class="container content">
+  <div class="row">
+    <div class="span3 bs-docs-sidebar">
+      <ul class="nav nav-list bs-docs-sidenav affix">
+
+  <li>
+    <a href="#api_jpush"><i class="icon-chevron-right"></i>jpush</a>
+  </li>
+
+</ul>
+
+    </div>
+    <div class="span9">
+      
+        <section id="api_jpush" class="api">
+  <h2>jpush: API索引</h2>
+  <ul class="indexs">
+  
+    <li>
+      <a href="#_pushNotification">pushNotification</a>
+    </li>
+
+    <li>
+      <a href="#_pushAndroidMessage">pushAndroidMessage</a>
+    </li>
+
+    <li>
+      <a href="#_pushSimpleNotification">pushSimpleNotification</a>
+    </li>
+
+    <li>
+      <a href="#_pushAndroidSimpleMessage">pushAndroidSimpleMessage</a>
+    </li>
+
+    <li>
+      <a href="#_build">build</a>
+    </li>
+
+  </ul>
+  <hr />
+
+  
+  <h3 id="_pushNotification">
+    pushNotification
+  </h3>
+  
+
+  <p>推送通知</p>
+
+  <table class="table">
+  
+    <tr>
+      <td>方法</td>
+      <td>JPush.prototype.pushNotification()</td> 
+      <td></td>
+      <td>pushNotification</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>sendno(int)</td>
+      <td colspan="2">1</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>receiver(Object)</td>
+      <td colspan="2">{type: 4, value: &quot;&quot;}</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>msg(Object)</td>
+      <td colspan="2">{type: 1, platform: &quot;Android&quot;, content: {n_content: &quot;Hello world&quot;}}</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>callback(Function)</td>
+      <td colspan="2">function(err, body){}</td>
+    </tr>
+  
+
+  
+  </table>
+  
+  
+  <h3 id="_pushAndroidMessage">
+    pushAndroidMessage
+  </h3>
+  
+
+  <p>推送自定义消息,只支持Android</p>
+
+  <table class="table">
+  
+    <tr>
+      <td>方法</td>
+      <td>JPush.prototype.pushAndroidMessage()</td> 
+      <td></td>
+      <td>pushAndroidMessage</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>sendno(int)</td>
+      <td colspan="2">1</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>receiver(Object)</td>
+      <td colspan="2">{type: 4, value: &quot;&quot;}</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>msg(Object)</td>
+      <td colspan="2">{content: {message: {your custom json}}}</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>callback(Function)</td>
+      <td colspan="2">function(err, body){}</td>
+    </tr>
+  
+
+  
+  </table>
+  
+  
+  <h3 id="_pushSimpleNotification">
+    pushSimpleNotification
+  </h3>
+  
+
+  <p>简易推送通知,纯文本</p>
+
+  <table class="table">
+  
+    <tr>
+      <td>方法</td>
+      <td>JPush.prototype.pushSimpleNotification()</td> 
+      <td></td>
+      <td>pushSimpleNotification</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>sendno(int)</td>
+      <td colspan="2">1</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>receiver(Object)</td>
+      <td colspan="2">{type: 4, value: &quot;&quot;}</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>msg(Object)</td>
+      <td colspan="2">{content: &quot;hello world!&quot;}</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>callback(Function)</td>
+      <td colspan="2">function(err, body){}</td>
+    </tr>
+  
+
+  
+  </table>
+  
+  
+  <h3 id="_pushAndroidSimpleMessage">
+    pushAndroidSimpleMessage
+  </h3>
+  
+
+  <p>推送简易消息,纯文本只支持android</p>
+
+  <table class="table">
+  
+    <tr>
+      <td>方法</td>
+      <td>JPush.prototype.pushAndroidSimpleMessage()</td> 
+      <td></td>
+      <td>pushAndroidSimpleMessage</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>sendno(int)</td>
+      <td colspan="2">1</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>receiver(Object)</td>
+      <td colspan="2">{type: 4, value: &quot;&quot;}</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>msg(Object)</td>
+      <td colspan="2">{content: &quot;hello world!&quot;}</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>callback(Function)</td>
+      <td colspan="2">function(err, body){}</td>
+    </tr>
+  
+
+  
+  </table>
+  
+  
+  <h3 id="_build">
+    build
+  </h3>
+  
+
+  <p>创建一个JPush 远程调用实例</p>
+
+  <table class="table">
+  
+    <tr>
+      <td>函数</td>
+      <td>build()</td> 
+      <td></td>
+      <td>build</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>options(Object)</td>
+      <td colspan="2">{appkey: &quot;you app key&quot;, masterSecret: &quot;you master secret&quot;}</td>
+    </tr>
+  
+
+    <tr>
+      <td>返回</td>
+      <td>JPush</td>
+      <td colspan="2">JPush实例 build({appkey: &quot;you app key&quot;, masterSecret: &quot;you master secret&quot;})</td>
+    </tr>
+  
+
+  
+  </table>
+  
+</section>
+      
+    </div>
+  </div>
+</div>
+      <footer class="footer">
+        <div class="container">
+          <p class="pull-right">
+            <a href="#">Back to top</a>
+          </p>
+         <p>此文档通过doxmate生成。主题借鉴Bootstrap API文档风格，注解基于<a href='https://github.com/visionmedia/dox'>Dox</a>。欢迎关注doxmate作者<a href='http://weibo.com/shyvo' target='_blank'>@朴灵</a></p><ul class='footer-links'><li><a href='https://github.com/visionmedia/dox'>Dox主页</a></li><li><a href='http://html5ify.com/doxmate'>Doxmate主页</a></li><li><a href='https://github.com/JacksonTian/doxmate'>Doxmate源码</a></li><li><a href='https://github.com/JacksonTian/doxmate/issues?state=open'>提交bug</a></li></ul>
+      </div>
+    </footer>
+    <script>
+      $(function() {
+        $('pre').addClass('prettyprint');
+        $('td pre').removeClass('prettyprint');
+        prettyPrint();
+        var $window = $(window);
+        $('.bs-docs-sidenav').affix({
+          offset: {
+            top: function () {
+              return $window.width() <= 980 ? 290 : 210
+            },
+            bottom: 270
+          }
+        });
+        $(".content").find('h1, h2, h3, h4, h5, h6').each(function () {
+          var node = $(this);
+          if (!node.attr("id")) {
+            node.attr("id", "index_" + node.text());
+          }
+          node.css("paddingTop", 40);
+        });
+      });
+    </script>
+  
+  </body>
+</html>

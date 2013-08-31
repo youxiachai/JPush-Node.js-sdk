@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>jpush Documentation</title>
+    <meta name="keywords" content="jpush" />
+    <meta name="description" content="jpush Node.js sdk" />
+    <script src="assets/prettify.js"></script>
+    <script src="assets/jquery-1.8.2.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/base.css" />
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="./index.html">jpush</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+            
+              <li>
+                <a href="./api.html">API Docs</a>
+              </li>
+            
+            
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header class="jumbotron subhead">
+      <div class="container">
+        <h1>jpush <small>Version: 0.0.1 By @youxiachai</small></h1>
+        <p class="lead">
+          jpush Node.js sdk
+        </p>
+      </div>
+    </header>
+<div class="container content">
+  <div class="row">
+  	<div class="span3 bs-docs-sidebar">
+      <ul class="nav nav-list bs-docs-sidenav affix">
+
+  <li class="level_2">
+    <a href="#index_Usage" title="Usage">
+      <i class="icon-chevron-right"></i>Usage
+    </a>
+  </li>
+
+  <li class="level_2">
+    <a href="#index_Example" title="Example">
+      <i class="icon-chevron-right"></i>Example
+    </a>
+  </li>
+
+  <li class="level_2">
+    <a href="#index_Api Support" title="Api Support">
+      <i class="icon-chevron-right"></i>Api Support
+    </a>
+  </li>
+
+</ul>
+
+    </div>
+    <div class="span9">
+      <section>
+        <h1>JPush Node.js sdk</h1>
+<p>极光推送Node.js 服务端 sdk</p>
+<h2>Usage</h2>
+<pre><code>npm install jpush</code></pre>
+<h2>Example</h2>
+<pre><code class="lang-js">var JPush = require(&#39;jpush&#39;);
+
+var jpushClient = JPush.build({appkey: &quot;you app key&quot;, masterSecret: &quot;you master secret key&quot;});
+
+// type value 的限制与文档一致
+var receiver = {};
+receiver.type = 4;
+receiver.value = &#39;&#39;;
+
+var msg = {};
+msg.content =  &#39;Hi! from boardcast&#39;;
+msg.platform = &#39;android&#39;;
+
+jpushClient.pushSimpleNotification(1, receiver, msg, function (err, body) {
+  // JPush server message
+  console.log(body);
+});</code></pre>
+<h2>Api Support</h2>
+<h3>pushNotification</h3>
+<h3>pushSimpleNotification</h3>
+<h3>pushAndroidMessage</h3>
+<h3>pushSimpleNotification</h3>
+
+      </section>
+  
+    </div>
+  </div>
+</div>
+      <footer class="footer">
+        <div class="container">
+          <p class="pull-right">
+            <a href="#">Back to top</a>
+          </p>
+         <p>此文档通过doxmate生成。主题借鉴Bootstrap API文档风格，注解基于<a href='https://github.com/visionmedia/dox'>Dox</a>。欢迎关注doxmate作者<a href='http://weibo.com/shyvo' target='_blank'>@朴灵</a></p><ul class='footer-links'><li><a href='https://github.com/visionmedia/dox'>Dox主页</a></li><li><a href='http://html5ify.com/doxmate'>Doxmate主页</a></li><li><a href='https://github.com/JacksonTian/doxmate'>Doxmate源码</a></li><li><a href='https://github.com/JacksonTian/doxmate/issues?state=open'>提交bug</a></li></ul>
+      </div>
+    </footer>
+    <script>
+      $(function() {
+        $('pre').addClass('prettyprint');
+        $('td pre').removeClass('prettyprint');
+        prettyPrint();
+        var $window = $(window);
+        $('.bs-docs-sidenav').affix({
+          offset: {
+            top: function () {
+              return $window.width() <= 980 ? 290 : 210
+            },
+            bottom: 270
+          }
+        });
+        $(".content").find('h1, h2, h3, h4, h5, h6').each(function () {
+          var node = $(this);
+          if (!node.attr("id")) {
+            node.attr("id", "index_" + node.text());
+          }
+          node.css("paddingTop", 40);
+        });
+      });
+    </script>
+  
+  </body>
+</html>

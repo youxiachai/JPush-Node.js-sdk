@@ -1,13 +1,14 @@
 {
   "name": "jpush",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "jpush Node.js sdk",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
   "keywords": [
-    "jpush"
+    "jpush",
+    "push"
   ],
   "author": "youxiachai",
   "license": "MIT",
@@ -20,6 +21,7 @@
     "should": "~1.2.2",
     "faker-zh-cn": "~0.5.8"
   },
+  "homepage": "http://blog.gfdsa.net/JPush-Node.js-sdk/",
   "repository": {
     "type": "git",
     "url": "git@github.com:youxiachai/JPush-Node.js-sdk.git"

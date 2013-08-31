@@ -5,10 +5,13 @@
 
 ##Usage
 
+```
 npm install jpush
+```
 
 ###Example
 
+``` js
 var JPush = require('jpush');
 
 var jpushClient = JPush.build({appkey: "you app key", masterSecret: "you master secret key"});
@@ -26,6 +29,7 @@ jpushClient.pushSimpleNotification(1, receiver, msg, function (err, body) {
   // JPush server message
   console.log(body);
 }
+```
 
 ##Api Support
 

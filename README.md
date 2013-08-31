@@ -29,13 +29,12 @@ jpushClient.pushSimpleNotification(1, receiver, msg, function (err, body) {
 });
 ```
 
-## Api Support
+## Api Docs
 
-### pushNotification
+[在线文档](http://blog.gfdsa.net/JPush-Node.js-sdk/):
+** http://blog.gfdsa.net/JPush-Node.js-sdk/ **
 
-### pushSimpleNotification
+## 支持本项目
+如果你觉得这个项目还不错,就请作者喝杯咖啡吧
 
-### pushAndroidMessage
-
-### pushSimpleNotification
-
+[![](http://blog.gfdsa.net/img/pay_encourage.png)](http://me.alipay.com/youxilua)

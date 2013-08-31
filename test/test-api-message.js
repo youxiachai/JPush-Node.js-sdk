@@ -38,22 +38,27 @@ function getRandomInt(min, max) {
   }
  */
 describe('should all test done', function () {
-  var jpushClient;
+  var jpushClient = JPush.build({appkey: "90f80351266b389350168ebe", masterSecret: "aa83ac670b6ea7bfe8ba090e"});
   var sendno;
   beforeEach(function () {
-    jpushClient = new JPush({appkey: "90f80351266b389350168ebe", masterSecret: "aa83ac670b6ea7bfe8ba090e"});
     sendno = getRandomInt(1, 100000);
   })
 
-  it('should send simple push message with IMEI', function (done) {
+  it('should push message with IMEI', function (done) {
     var receiver = {};
     receiver.type = 1;
     //11be746356bd8fd8
     receiver.value = '11be746356bd8fd8';
 
-    jpushClient.pushAndroidSimpleMessage(sendno, receiver, 'Hi! from IMEI', function (err, body) {
+    var msg = {};
+    msg.content = {
+      message: {
+        ok: true
+      }
+    };
+
+    jpushClient.pushAndroidMessage(sendno, receiver, msg, function (err, body) {
       if (err) return  done(JSON.stringify(err));
-      console.log(body);
       body.should.include('"errmsg":"Succeed"');
       setTimeout(done, 500);
     });
@@ -65,9 +70,15 @@ describe('should all test done', function () {
     //11be746356bd8fd8
     receiver.value = 'test';
 
-    jpushClient.pushAndroidSimpleMessage(sendno, receiver, 'Hi! from tag', function (err, body) {
+    var msg = {};
+    msg.content = {
+      message: {
+        ok: true
+      }
+    };
+
+    jpushClient.pushAndroidMessage(sendno, receiver, msg, function (err, body) {
       if (err) return  done(JSON.stringify(err));
-      console.log(body);
       body.should.include('"errmsg":"Succeed"');
       setTimeout(done, 500);
     });
@@ -79,9 +90,15 @@ describe('should all test done', function () {
     //11be746356bd8fd8
     receiver.value = 'alias';
 
-    jpushClient.pushAndroidSimpleMessage(sendno, receiver, 'Hi! from alias', function (err, body) {
+    var msg = {};
+    msg.content = {
+      message: {
+        ok: true
+      }
+    };
+
+    jpushClient.pushAndroidMessage(sendno, receiver, msg, function (err, body) {
       if (err) return  done(JSON.stringify(err));
-      console.log(body);
       body.should.include('"errmsg":"Succeed"');
       setTimeout(done, 500);
     });
@@ -92,9 +109,15 @@ describe('should all test done', function () {
     receiver.type = 4;
     receiver.value = '';
 
-    jpushClient.pushAndroidSimpleMessage(sendno, receiver, 'from boardcast', function (err, body) {
+    var msg = {};
+    msg.content = {
+      message: {
+        ok: true
+      }
+    };
+
+    jpushClient.pushAndroidMessage(sendno, receiver, msg, function (err, body) {
       if (err) return  done(JSON.stringify(err));
-      console.log(body);
       body.should.include('"errmsg":"Succeed"');
       setTimeout(done, 500);
     });

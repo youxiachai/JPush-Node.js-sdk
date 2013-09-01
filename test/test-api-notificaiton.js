@@ -125,7 +125,7 @@ describe('should test all push notification', function () {
     this.timeout(0);
     setTimeout(function () {
     jpushClient.pushNotification(sendno, receiver, msg, function (err, body) {
-      if (err) return  done(JSON.stringify(err));
+      if (err) return  done('error ->' + JSON.stringify(err));
       body.should.include('"errmsg":"Succeed"');
       done();
     })}, 60000);;

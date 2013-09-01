@@ -49,7 +49,7 @@ describe('should test all push simple notification', function () {
     var receiver = {};
     receiver.type = 1;
     //11be746356bd8fd8
-    receiver.value = '11be746356bd8fd8';
+    receiver.value = '5d3f09902790ba96';
 
     var msg = {};
     msg.content =  'Hi! from IMEI';
@@ -57,7 +57,7 @@ describe('should test all push simple notification', function () {
 
     setTimeout(function () {
       jpushClient.pushSimpleNotification(sendno, receiver, msg, function (err, body) {
-        if (err) return  done(JSON.stringify(err));
+        if (err) return  done(err);
         body.should.include('"errmsg":"Succeed"');
         done();
       });
@@ -72,7 +72,7 @@ describe('should test all push simple notification', function () {
     receiver.value = '11be746356bd8fd8';
 
     var msg = {};
-    msg.content =  'Hi! from IMEI';
+    msg.content =  'Hi! from IMEI with options';
     msg.platform = 'android';
 
     var options = {}

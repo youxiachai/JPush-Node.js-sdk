@@ -37,7 +37,7 @@ function getRandomInt(min, max) {
     var bora = 4;
   }
  */
-describe('should all test push message', function () {
+describe('should test all push message', function () {
   var jpushClient = JPush.build({appkey: "90f80351266b389350168ebe", masterSecret: "aa83ac670b6ea7bfe8ba090e"});
   var sendno;
   beforeEach(function () {

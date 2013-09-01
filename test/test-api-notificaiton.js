@@ -37,7 +37,7 @@ function getRandomInt(min, max) {
     var bora = 4;
   }
  */
-describe('should all test done', function () {
+describe('should all test push all notification', function () {
   var jpushClient = JPush.build({appkey: "90f80351266b389350168ebe", masterSecret: "aa83ac670b6ea7bfe8ba090e"});
   var sendno;
   beforeEach(function () {
@@ -120,7 +120,7 @@ describe('should all test done', function () {
     msg.type = 1;
     msg.platform = 'android';
     msg.content = {
-      n_content:  'Hi! from boardcast'
+      n_content:  'Hi! from  boardcast'
     };
     this.timeout(0);
     setTimeout(function () {

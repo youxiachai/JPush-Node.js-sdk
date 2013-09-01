@@ -37,7 +37,7 @@ function getRandomInt(min, max) {
     var bora = 4;
   }
  */
-describe('should all test done', function () {
+describe('should test all push simple message', function () {
   var jpushClient = JPush.build({appkey: "90f80351266b389350168ebe", masterSecret: "aa83ac670b6ea7bfe8ba090e"});
   var sendno;
 
@@ -91,7 +91,7 @@ describe('should all test done', function () {
     }, 500)
   })
 
-  it('should spush message with boardcast', function (done) {
+  it('should push message with boardcast', function (done) {
 
     var receiver = {};
     receiver.type = 4;
@@ -99,7 +99,7 @@ describe('should all test done', function () {
     this.timeout(0);
     // this api should wait 1 minute
     setTimeout(function () {
-      jpushClient.pushAndroidSimpleMessage(sendno, receiver, {content: 'from boardcast'}, function (err, body) {
+      jpushClient.pushAndroidSimpleMessage(sendno, receiver, {content: 'from simple boardcast'}, function (err, body) {
         if (err) return  done(JSON.stringify(err));
         body.should.include('"errmsg":"Succeed"');
         done();

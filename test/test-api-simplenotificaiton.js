@@ -37,7 +37,7 @@ function getRandomInt(min, max) {
     var bora = 4;
   }
  */
-describe('should all test done', function () {
+describe('should test all push simple notification', function () {
   var jpushClient;
   var sendno;
   jpushClient = JPush.build({appkey: "90f80351266b389350168ebe", masterSecret: "aa83ac670b6ea7bfe8ba090e"});
@@ -45,7 +45,7 @@ describe('should all test done', function () {
     sendno = getRandomInt(1, 100000);
   })
 
-  it('should send simple pushSimpleNotification with IMEI', function (done) {
+  it('should  push Simple Notification with IMEI', function (done) {
     var receiver = {};
     receiver.type = 1;
     //11be746356bd8fd8
@@ -87,7 +87,7 @@ describe('should all test done', function () {
     }, 500);
   })
 
-  it('should send simple pushSimpleNotification with tag', function (done) {
+  it('should push Simple Notification with tag', function (done) {
     var receiver = {};
     receiver.type = 2;
     //11be746356bd8fd8
@@ -106,7 +106,7 @@ describe('should all test done', function () {
     }, 500);
   })
 
-  it('should send simple pushSimpleNotification with alias', function (done) {
+  it('should push Simple Notification with alias', function (done) {
     var receiver = {};
     receiver.type = 3;
     //11be746356bd8fd8
@@ -125,13 +125,13 @@ describe('should all test done', function () {
     }, 500);
   })
 
-  it('should send simple notificaion with boardcast', function (done) {
+  it('should psuh notificaion with boardcast', function (done) {
     var receiver = {};
     receiver.type = 4;
     receiver.value = '';
 
     var msg = {};
-    msg.content =  'Hi! from boardcast';
+    msg.content =  'Hi! from simple boardcast';
     msg.platform = 'android';
 
     this.timeout(0);

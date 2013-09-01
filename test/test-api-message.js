@@ -37,7 +37,7 @@ function getRandomInt(min, max) {
     var bora = 4;
   }
  */
-describe('should all test done', function () {
+describe('should all test push message', function () {
   var jpushClient = JPush.build({appkey: "90f80351266b389350168ebe", masterSecret: "aa83ac670b6ea7bfe8ba090e"});
   var sendno;
   beforeEach(function () {
@@ -66,7 +66,7 @@ describe('should all test done', function () {
 
   })
 
-  it('should send simple simple push message with tag', function (done) {
+  it('should push message with tag', function (done) {
     var receiver = {};
     receiver.type = 2;
     //11be746356bd8fd8
@@ -88,7 +88,7 @@ describe('should all test done', function () {
     }, 500);
   })
 
-  it('should send simple simple push message with alias', function (done) {
+  it('should push message with alias', function (done) {
     var receiver = {};
     receiver.type = 3;
     //11be746356bd8fd8

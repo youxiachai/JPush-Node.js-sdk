@@ -4,7 +4,7 @@
   "description": "jpush Node.js sdk",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -t 5000 --reporter spec"
+    "test": "mocha -t 50000 --reporter spec"
   },
   "keywords": [
     "jpush",

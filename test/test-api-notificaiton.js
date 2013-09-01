@@ -58,11 +58,13 @@ describe('should all test done', function () {
     };
 
 
-    jpushClient.pushNotification(sendno, receiver, msg, function (err, body) {
-      if (err) return  done(JSON.stringify(err));
-      body.should.include('"errmsg":"Succeed"');
-      setTimeout(done, 500);
-    });
+    setTimeout(function () {
+      jpushClient.pushNotification(sendno, receiver, msg, function (err, body) {
+        if (err) return  done(JSON.stringify(err));
+        body.should.include('"errmsg":"Succeed"');
+        done();
+      });
+    }, 500);
   })
 
   it('should push notificaionn with tag', function (done) {
@@ -78,11 +80,13 @@ describe('should all test done', function () {
       n_content:  'Hi! from tag'
     };
 
-    jpushClient.pushNotification(sendno, receiver, msg, function (err, body) {
-      if (err) return  done(JSON.stringify(err));
-      body.should.include('"errmsg":"Succeed"');
-      setTimeout(done, 500);
-    });
+    setTimeout(function () {
+      jpushClient.pushNotification(sendno, receiver, msg, function (err, body) {
+        if (err) return  done(JSON.stringify(err));
+        body.should.include('"errmsg":"Succeed"');
+        done();
+      });
+    }, 500);
   })
 
   it('should push notificaion with alias', function (done) {
@@ -98,11 +102,13 @@ describe('should all test done', function () {
       n_content:  'Hi! from alias'
     };
 
-    jpushClient.pushNotification(sendno, receiver, msg, function (err, body) {
-      if (err) return  done(JSON.stringify(err));
-      body.should.include('"errmsg":"Succeed"');
-      setTimeout(done, 500);
-    });
+    setTimeout(function () {
+      jpushClient.pushNotification(sendno, receiver, msg, function (err, body) {
+        if (err) return  done(JSON.stringify(err));
+        body.should.include('"errmsg":"Succeed"');
+        done();
+      });
+    }, 500);
   })
 
   it('should push notificaion with boardcast', function (done) {

@@ -45,46 +45,53 @@ describe('should all test done', function () {
     sendno = getRandomInt(1, 100000);
   })
 
-  it('should send simple push message with IMEI', function (done) {
+  it('should push message with IMEI', function (done) {
     var receiver = {};
     receiver.type = 1;
     //11be746356bd8fd8
     receiver.value = '11be746356bd8fd8';
 
-    jpushClient.pushAndroidSimpleMessage(sendno, receiver, {content:'from boardcast'}, function (err, body) {
-      if (err) return  done(JSON.stringify(err));
-      body.should.include('"errmsg":"Succeed"');
-      setTimeout(done, 500);
-    });
+    setTimeout(function () {
+      jpushClient.pushAndroidSimpleMessage(sendno, receiver, {content: 'from boardcast'}, function (err, body) {
+        if (err) return  done(JSON.stringify(err));
+        body.should.include('"errmsg":"Succeed"');
+        done();
+      });
+    }, 500);
   })
 
-  it('should send simple simple push message with tag', function (done) {
+  it('should push message with tag', function (done) {
     var receiver = {};
     receiver.type = 2;
     //11be746356bd8fd8
     receiver.value = 'test';
+    setTimeout(function () {
+      jpushClient.pushAndroidSimpleMessage(sendno, receiver, {content: 'from tag'}, function (err, body) {
+        if (err) return  done(JSON.stringify(err));
+        body.should.include('"errmsg":"Succeed"');
+        done();
+      });
+    }, 500);
 
-    jpushClient.pushAndroidSimpleMessage(sendno, receiver, {content:'from boardcast'}, function (err, body) {
-      if (err) return  done(JSON.stringify(err));
-      body.should.include('"errmsg":"Succeed"');
-      setTimeout(done, 500);
-    });
   })
 
-  it('should send simple simple push message with alias', function (done) {
+  it('should push message with alias', function (done) {
     var receiver = {};
     receiver.type = 3;
     //11be746356bd8fd8
     receiver.value = 'alias';
 
-    jpushClient.pushAndroidSimpleMessage(sendno, receiver, {content:'from boardcast'}, function (err, body) {
-      if (err) return  done(JSON.stringify(err));
-      body.should.include('"errmsg":"Succeed"');
-      setTimeout(done, 500);
-    });
+
+    setTimeout(function () {
+      jpushClient.pushAndroidSimpleMessage(sendno, receiver, {content: 'from boardcast'}, function (err, body) {
+        if (err) return  done(JSON.stringify(err));
+        body.should.include('"errmsg":"Succeed"');
+        setTimeout(done, 500);
+      });
+    }, 500)
   })
 
-  it('should send simple push message with boardcast', function (done) {
+  it('should spush message with boardcast', function (done) {
 
     var receiver = {};
     receiver.type = 4;
@@ -92,7 +99,7 @@ describe('should all test done', function () {
     this.timeout(0);
     // this api should wait 1 minute
     setTimeout(function () {
-      jpushClient.pushAndroidSimpleMessage(sendno, receiver, {content:'from boardcast'}, function (err, body) {
+      jpushClient.pushAndroidSimpleMessage(sendno, receiver, {content: 'from boardcast'}, function (err, body) {
         if (err) return  done(JSON.stringify(err));
         body.should.include('"errmsg":"Succeed"');
         done();

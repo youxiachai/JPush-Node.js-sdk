@@ -56,12 +56,14 @@ describe('should all test done', function () {
         ok: true
       }
     };
+    setTimeout(function () {
+      jpushClient.pushAndroidMessage(sendno, receiver, msg, function (err, body) {
+        if (err) return  done(JSON.stringify(err));
+        body.should.include('"errmsg":"Succeed"');
+        done()
+      });
+    }, 500);
 
-    jpushClient.pushAndroidMessage(sendno, receiver, msg, function (err, body) {
-      if (err) return  done(JSON.stringify(err));
-      body.should.include('"errmsg":"Succeed"');
-      setTimeout(done, 500);
-    });
   })
 
   it('should send simple simple push message with tag', function (done) {
@@ -77,11 +79,13 @@ describe('should all test done', function () {
       }
     };
 
-    jpushClient.pushAndroidMessage(sendno, receiver, msg, function (err, body) {
-      if (err) return  done(JSON.stringify(err));
-      body.should.include('"errmsg":"Succeed"');
-      setTimeout(done, 500);
-    });
+    setTimeout(function () {
+      jpushClient.pushAndroidMessage(sendno, receiver, msg, function (err, body) {
+        if (err) return  done(JSON.stringify(err));
+        body.should.include('"errmsg":"Succeed"');
+        done()
+      });
+    }, 500);
   })
 
   it('should send simple simple push message with alias', function (done) {
@@ -97,11 +101,13 @@ describe('should all test done', function () {
       }
     };
 
-    jpushClient.pushAndroidMessage(sendno, receiver, msg, function (err, body) {
-      if (err) return  done(JSON.stringify(err));
-      body.should.include('"errmsg":"Succeed"');
-      setTimeout(done, 500);
-    });
+    setTimeout(function () {
+      jpushClient.pushAndroidMessage(sendno, receiver, msg, function (err, body) {
+        if (err) return  done(JSON.stringify(err));
+        body.should.include('"errmsg":"Succeed"');
+        done()
+      });
+    }, 500);
   })
 
   it('should send simple push message with boardcast', function (done) {

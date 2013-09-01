@@ -55,11 +55,14 @@ describe('should all test done', function () {
     msg.content =  'Hi! from IMEI';
     msg.platform = 'android';
 
-    jpushClient.pushSimpleNotification(sendno, receiver, msg, function (err, body) {
-      if (err) return  done(JSON.stringify(err));
-      body.should.include('"errmsg":"Succeed"');
-      setTimeout(done, 500);
-    });
+    setTimeout(function () {
+      jpushClient.pushSimpleNotification(sendno, receiver, msg, function (err, body) {
+        if (err) return  done(JSON.stringify(err));
+        body.should.include('"errmsg":"Succeed"');
+        done();
+      });
+    }, 500);
+
   })
 
   it('should push Simple Notification have options with IMEI', function (done) {
@@ -72,11 +75,16 @@ describe('should all test done', function () {
     msg.content =  'Hi! from IMEI';
     msg.platform = 'android';
 
-    jpushClient.pushSimpleNotification(sendno, receiver, msg, {timeToLive: 10000},function (err, body) {
-      if (err) return  done(JSON.stringify(err));
-      body.should.include('"errmsg":"Succeed"');
-      setTimeout(done, 500);
-    });
+    var options = {}
+    options.timeToLive = 10000;
+
+    setTimeout(function  () {
+      jpushClient.pushSimpleNotification(sendno, receiver, msg, options,function (err, body) {
+        if (err) return  done(JSON.stringify(err));
+        body.should.include('"errmsg":"Succeed"');
+        done();
+      });
+    }, 500);
   })
 
   it('should send simple pushSimpleNotification with tag', function (done) {
@@ -89,11 +97,13 @@ describe('should all test done', function () {
     msg.content =  'Hi! from tag';
     msg.platform = 'android';
 
-    jpushClient.pushSimpleNotification(sendno, receiver, msg, function (err, body) {
-      if (err) return  done(JSON.stringify(err));
-      body.should.include('"errmsg":"Succeed"');
-      setTimeout(done, 500);
-    });
+    setTimeout(function () {
+      jpushClient.pushSimpleNotification(sendno, receiver, msg, function (err, body) {
+        if (err) return  done(JSON.stringify(err));
+        body.should.include('"errmsg":"Succeed"');
+        done();
+      });
+    }, 500);
   })
 
   it('should send simple pushSimpleNotification with alias', function (done) {
@@ -106,11 +116,13 @@ describe('should all test done', function () {
     msg.content =  'Hi! from alias';
     msg.platform = 'android';
 
-    jpushClient.pushSimpleNotification(sendno, receiver, msg, function (err, body) {
-      if (err) return  done(JSON.stringify(err));
-      body.should.include('"errmsg":"Succeed"');
-      setTimeout(done, 500);
-    });
+    setTimeout(function () {
+      jpushClient.pushSimpleNotification(sendno, receiver, msg, function (err, body) {
+        if (err) return  done(JSON.stringify(err));
+        body.should.include('"errmsg":"Succeed"');
+        done();
+      });
+    }, 500);
   })
 
   it('should send simple notificaion with boardcast', function (done) {

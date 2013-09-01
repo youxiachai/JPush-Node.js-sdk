@@ -122,11 +122,14 @@ describe('should all test done', function () {
     msg.content =  'Hi! from boardcast';
     msg.platform = 'android';
 
-    jpushClient.pushSimpleNotification(sendno, receiver, msg, function (err, body) {
-      if (err) return  done(JSON.stringify(err));
-      body.should.include('"errmsg":"Succeed"');
-      setTimeout(done, 500);
-    });
-
+    this.timeout(0);
+    // this api should wait 1 minute
+    setTimeout(function () {
+      jpushClient.pushSimpleNotification(sendno, receiver, msg, function (err, body) {
+        if (err) return  done(JSON.stringify(err));
+        body.should.include('"errmsg":"Succeed"');
+        done();
+      });
+    }, 60000);
   })
 });

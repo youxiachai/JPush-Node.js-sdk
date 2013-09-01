@@ -116,12 +116,13 @@ describe('should all test done', function () {
     msg.content = {
       n_content:  'Hi! from boardcast'
     };
-
+    this.timeout(0);
+    setTimeout(function () {
     jpushClient.pushNotification(sendno, receiver, msg, function (err, body) {
       if (err) return  done(JSON.stringify(err));
       body.should.include('"errmsg":"Succeed"');
-      setTimeout(done, 500);
-    });
+      done();
+    })}, 60000);;
 
   })
 });

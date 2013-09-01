@@ -85,15 +85,18 @@ describe('should all test done', function () {
   })
 
   it('should send simple push message with boardcast', function (done) {
+
     var receiver = {};
     receiver.type = 4;
     receiver.value = '';
-
-    jpushClient.pushAndroidSimpleMessage(sendno, receiver, {content:'from boardcast'}, function (err, body) {
-      if (err) return  done(JSON.stringify(err));
-      body.should.include('"errmsg":"Succeed"');
-      setTimeout(done, 500);
-    });
-
+    this.timeout(0);
+    // this api should wait 1 minute
+    setTimeout(function () {
+      jpushClient.pushAndroidSimpleMessage(sendno, receiver, {content:'from boardcast'}, function (err, body) {
+        if (err) return  done(JSON.stringify(err));
+        body.should.include('"errmsg":"Succeed"');
+        done();
+      });
+    }, 60000);
   })
 });

@@ -115,12 +115,14 @@ describe('should all test done', function () {
         ok: true
       }
     };
-
+// this api should wait 1 minute
+    this.timeout(0);
+    setTimeout(function () {
     jpushClient.pushAndroidMessage(sendno, receiver, msg, function (err, body) {
       if (err) return  done(JSON.stringify(err));
       body.should.include('"errmsg":"Succeed"');
-      setTimeout(done, 500);
-    });
+      done();
+    })}, 60000);
 
   })
 });

@@ -1,4 +1,4 @@
-JPush Node.js sdk [![Build Status](https://travis-ci.org/youxiachai/JPush-Node.js-sdk.png?branch=master)](https://travis-ci.org/youxiachai/JPush-Node.js-sdk)
+JPush Node.js sdk [![Build Status](https://travis-ci.org/youxiachai/JPush-Node.js-sdk.png?branch=master)](https://travis-ci.org/youxiachai/JPush-Node.js-sdk) [![NPM version](https://badge.fury.io/js/jpush.png)](http://badge.fury.io/js/jpush)
 ======================
 极光推送Node.js 服务端 sdk
 ## Usage

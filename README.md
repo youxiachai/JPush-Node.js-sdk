@@ -38,3 +38,7 @@ jpushClient.pushSimpleNotification(1, receiver, msg, function (err, body) {
 如果你觉得这个项目还不错,就请作者喝杯咖啡吧
 
 [![](http://blog.gfdsa.net/img/pay_encourage.png)](http://me.alipay.com/youxilua)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/youxiachai/jpush-node.js-sdk/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+

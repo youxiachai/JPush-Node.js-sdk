@@ -15,7 +15,7 @@ JPush Node.js sdk [![Build Status](https://travis-ci.org/youxiachai/JPush-Node.j
 v2
 
 ```
-npm install jpush@1
+npm install jpush@0.1
 ```
 
 v3

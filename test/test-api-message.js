@@ -8,127 +8,102 @@
 var should = require('should');
 var JPush = require('../index');
 function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-/**
- *   // 4 means broadcast should wait 1 minute;
- if (receiver.type == 4) {
-    if (!broadcastTimers) {
-      var oneSecond = 60;
-      broadcastTimers = setInterval(function () {
-        oneSecond = oneSecond - 1;
-        console.log(oneSecond);
-        if (broadcastTimers == 0) {
-          clearInterval(broadcastTimers);
-          broadcastTimers = null;
-        }
-      }, 1000);
 
-    } else {
-      return callback(broadcastTimers);
-    }
-     // 1
-    var IMEI = '';
-    //2
-    var tag = '';
-    //3
-    var alias = ''
-    //4
-    var bora = 4;
-  }
- */
 describe('should test all push message', function () {
-  var jpushClient = JPush.build({appkey: "90f80351266b389350168ebe", masterSecret: "aa83ac670b6ea7bfe8ba090e"});
-  var sendno;
-  beforeEach(function () {
-    sendno = getRandomInt(1, 100000);
-  })
 
-  it('should push message with IMEI', function (done) {
-    var receiver = {};
-    receiver.type = 1;
-    //11be746356bd8fd8
-    receiver.value = '11be746356bd8fd8';
+    var jpushClient = JPush.build({appkey: "90f80351266b389350168ebe", masterSecret: "aa83ac670b6ea7bfe8ba090e"});
+    var sendno;
 
-    var msg = {};
-    msg.content = {
-      message: {
-        ok: true
-      }
-    };
-    setTimeout(function () {
-      jpushClient.pushAndroidMessage(sendno, receiver, msg, function (err, body) {
-        if (err) return  done(JSON.stringify(err));
-        body.should.include('"errmsg":"Succeed"');
-        done()
-      });
-    }, 500);
+    beforeEach(function () {
+        sendno = getRandomInt(1, 100000);
+    })
 
-  })
+    it('should push message all platform all audience', function (done) {
 
-  it('should push message with tag', function (done) {
-    var receiver = {};
-    receiver.type = 2;
-    //11be746356bd8fd8
-    receiver.value = 'test';
+        var body = 'Hi jpush nodejs sdk!';
 
-    var msg = {};
-    msg.content = {
-      message: {
-        ok: true
-      }
-    };
+        setTimeout(function () {
+            jpushClient.pushMessage(body, function (err, result) {
+                should.not.exist(err);
+                should.exist(result);
+                done(err)
+            })
+        }, 1000)
 
-    setTimeout(function () {
-      jpushClient.pushAndroidMessage(sendno, receiver, msg, function (err, body) {
-        if (err) return  done(JSON.stringify(err));
-        body.should.include('"errmsg":"Succeed"');
-        done()
-      });
-    }, 500);
-  })
 
-  it('should push message with alias', function (done) {
-    var receiver = {};
-    receiver.type = 3;
-    //11be746356bd8fd8
-    receiver.value = 'alias';
+    })
 
-    var msg = {};
-    msg.content = {
-      message: {
-        ok: true
-      }
-    };
+    it('should push message all platform all audience with options', function (done) {
+        var body = ' push message from nodejs sdk!';
 
-    setTimeout(function () {
-      jpushClient.pushAndroidMessage(sendno, receiver, msg, function (err, body) {
-        if (err) return  done(JSON.stringify(err));
-        body.should.include('"errmsg":"Succeed"');
-        done()
-      });
-    }, 500);
-  })
+        var jpushOpitons = {};
+        jpushOpitons.options = {};
+        jpushOpitons.options.sendno = sendno;
 
-  it('should send simple push message with boardcast', function (done) {
-    var receiver = {};
-    receiver.type = 4;
-    receiver.value = '';
+        setTimeout(function () {
+            jpushClient.pushMessage(body, jpushOpitons, function (err, result) {
+                should.not.exist(err);
 
-    var msg = {};
-    msg.content = {
-      message: {
-        ok: true
-      }
-    };
-// this api should wait 1 minute
-    this.timeout(0);
-    setTimeout(function () {
-    jpushClient.pushAndroidMessage(sendno, receiver, msg, function (err, body) {
-      if (err) return  done(JSON.stringify(err));
-      body.should.include('"errmsg":"Succeed"');
-      done();
-    })}, 60000);
+                result.sendno.should.equal(sendno + "");
+                done(err)
+            })
+        }, 500)
 
-  })
+
+    })
+
+
+    it('should push message all platform audience tag sdk with options', function (done) {
+        var body = 'push message all platform audience tag sdk';
+
+        var jpushOpitons = {};
+        jpushOpitons.options = {};
+        jpushOpitons.options.sendno = sendno;
+
+        jpushOpitons.audience = {
+            "tag": ["sdk"]
+        };
+
+        setTimeout(function () {
+            jpushClient.pushMessage(body, jpushOpitons, function (err, result) {
+                should.not.exist(err);
+
+                result.sendno.should.equal(sendno + "");
+                done(err)
+            })
+        }, 500)
+
+
+    })
+
+
+    it('should push message obj all platform audience tag sdk with options', function (done) {
+        var body = {};
+
+        body.msg_content = 'push message obj';
+        body.title = "Node.js sdk";
+
+
+        var jpushOpitons = {};
+        jpushOpitons.options = {};
+        jpushOpitons.options.sendno = sendno;
+
+        jpushOpitons.audience = {
+            "tag": ["sdk"]
+        };
+
+        setTimeout(function () {
+            jpushClient.pushMessage(body, jpushOpitons, function (err, result) {
+                should.not.exist(err);
+                result.sendno.should.equal(sendno + "");
+                done(err)
+            })
+        }, 500);
+
+
+    })
+
+
 });

@@ -1,6 +1,6 @@
 {
   "name": "jpush",
-  "version": "0.1.7",
+  "version": "0.3.1",
   "description": "jpush Node.js sdk",
   "main": "index.js",
   "scripts": {
@@ -13,8 +13,8 @@
   "author": "youxiachai",
   "license": "MIT",
   "dependencies": {
-    "request": "~2.27.0",
-    "popularcrypto": "0.0.2"
+    "debug": "^0.8.1",
+    "request": "~2.36.0"
   },
   "devDependencies": {
     "mocha": "~1.12.1",

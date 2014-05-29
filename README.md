@@ -1,35 +1,65 @@
 JPush Node.js sdk [![Build Status](https://travis-ci.org/youxiachai/JPush-Node.js-sdk.png?branch=master)](https://travis-ci.org/youxiachai/JPush-Node.js-sdk) [![NPM version](https://badge.fury.io/js/jpush.png)](http://badge.fury.io/js/jpush)
 ======================
 极光推送Node.js 服务端 sdk
+
+## v2 or v3
+
+极光推送官网更新了v3 接口
+
+[http://docs.jpush.cn/display/dev/Push-API-v3](http://docs.jpush.cn/display/dev/Push-API-v3)
+
+所以,本sdk 库也同步更新...对于v2 接口用0.1.x 版本 , v3 用0.3.x版本.
+
 ## Usage
+
+v2
+
+```
+npm install jpush@1
+```
+
+v3
 
 ```
 npm install jpush
 ```
 
+
 ## Example
+
+### Notification
 
 ``` js
 var JPush = require('jpush');
 
 var jpushClient = JPush.build({appkey: "you app key", masterSecret: "you master secret key"});
 
-// type value 的限制与文档一致
-var receiver = {};
-receiver.type = 4;
-receiver.value = '';
+var body =  'Hi jpush nodejs sdk!';
 
-var msg = {};
-msg.content =  'Hi! from boardcast';
-msg.platform = 'android';
-
-jpushClient.pushSimpleNotification(1, receiver, msg, function (err, body) {
-  // JPush server message
-  console.log(body);
-});
+jpushClient.pushNotification(body, function (err, result){
+   console.log(result);
+})
 ```
 
+### Message
+
+``` js
+var JPush = require('jpush');
+
+var jpushClient = JPush.build({appkey: "you app key", masterSecret: "you master secret key"});
+
+var body =  'Hi jpush nodejs sdk!';
+
+jpushClient.pushMessage(body, function (err, result) {
+   console.log(result);
+})
+```
+
+更多例子去看test目录下的单元测试
+
 ## Api Docs
+
+该在线文档为jpush v2
 
 [在线API文档](http://blog.gfdsa.net/JPush-Node.js-sdk/api.html):
 ** http://blog.gfdsa.net/JPush-Node.js-sdk/ **

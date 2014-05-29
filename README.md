@@ -24,7 +24,6 @@ v3
 npm install jpush
 ```
 
-
 ## Example
 
 ### Notification
@@ -59,10 +58,13 @@ jpushClient.pushMessage(body, function (err, result) {
 
 ## Api Docs
 
-该在线文档为jpush v2
+### JPush Api v2
 
-[在线API文档](http://blog.gfdsa.net/JPush-Node.js-sdk/api.html):
-** http://blog.gfdsa.net/JPush-Node.js-sdk/ **
+[jpush v2 在线API文档](http://blog.gfdsa.net/JPush-Node.js-sdk/api.html):http://blog.gfdsa.net/JPush-Node.js-sdk/
+
+### JPush Api v3
+
+[jpush v3 在线API文档](http://blog.gfdsa.net/JPush-Node.js-sdk/v3/jpush.html):http://blog.gfdsa.net/JPush-Node.js-sdk/v3/jpush.html
 
 ## 支持本项目
 如果你觉得这个项目还不错,就请作者喝杯咖啡吧
